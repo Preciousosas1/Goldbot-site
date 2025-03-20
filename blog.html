@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+  <title>Gold bot - Revolutionary Trading bot</title>
+
+  <!-- Meta Information -->
+  <meta charset="UTF-8">
+  <meta name="description" content="Gold bot - Revolutionary Trading bot">
+  <meta name="keywords"
+    content="Gold bot - Revolutionary Trading bot, Fully Automated,  MetaTrader Compatibility, Advanced Algorithms, 
+    Risk Management ">
+  <meta name="author" content="Gold bot - Revolutionary Trading bot">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" href="assets/images/logo/favicon/apple-touch-icon.png">
+
+  <!-- Bootstrap Version 5.3.2 Minified CSS -->
+  <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <!-- Swiper JS Version 10.3.1 Minified CSS -->
+  <link type="text/css" rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <!-- Atropos Version  2.0.2 Minified CSS -->
+  <link type="text/css" rel="stylesheet" href="assets/css/atropos.min.css">
+  <!-- Mouse Follower Version 1.1.2 CSS -->
+  <link rel="stylesheet" href="assets/css/mouse-follower.min.css">
+  <!-- Nice Select CSS Version 1.0 File -->
+  <link type="text/css" rel="stylesheet" href="assets/css/nice-select.css" />
+  <!-- Customized Style CSS -->
+  <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+  <!-- Responsive CSS -->
+  <link type="text/css" rel="stylesheet" href="assets/css/responsive.css" />
+  <!-- MY CSS -->
+  <link type="text/css" rel="stylesheet" href="assets/css/mine.css" />
+
+  <!-- ThemeChanger Javascript File -->
+  <script src="assets/js/themechanger.js"></script>
+</head>
+
+<body>
+  
+
+  <!-- Header Start -->
+  <header class="position-fixed w-100 top-0 start-0 end-0  header" id="header">
+    <div class="container">
+      <div class="d-grid header-wrapper align-items-center">
+        <div class="header-left-wrapper d-flex">
+          <!-- Logo Start -->
+          <a href="index.html" class="header-logo-wrapper d-flex">
+            <img src="assets/images/logo/logo1.png" class="img-fluid" alt="logo">
+          </a>
+          <!-- Logo End -->
+
+          <div class="navbar-box-shadow position-fixed top-0 start-0"></div>
+
+          <nav class="navbar py-xl-0">
+            <ul
+              class="d-flex justify-content-center justify-content-xl-start flex-xl-row flex-column align-items-xl-center nav-list-wrapper">
+              <li class="nav-list">
+                <a href="index.html" class="nav-links fw-normal "
+                  data-cursor="nft-magnifiers-cursor nft-light-mode-magnifiers-cursor"
+                  data-cursor-text="Click me!">Home</a>
+              </li>
+             
+              
+              <li class="nav-list">
+                <a  href="index.html" class="nav-links fw-normal"
+                  data-cursor="nft-magnifiers-cursor nft-light-mode-magnifiers-cursor"
+                  data-cursor-text="Click me!"> About bot </a>
+              </li>
+              <li class="nav-list">
+                <a href="index.html" class="nav-links fw-normal"
+                  data-cursor="nft-magnifiers-cursor nft-light-mode-magnifiers-cursor"
+                  data-cursor-text="Click me!">Bot Results</a>
+              </li>
+              <li class="nav-list">
+                <a href="form.html" class="nav-links fw-normal"
+                  data-cursor="nft-magnifiers-cursor nft-light-mode-magnifiers-cursor"
+                  data-cursor-text="Click me!">Buy bot</a>
+              </li>
+              <li class="nav-list">
+                <a href="privacy-policy.html" class="nav-links"
+                  data-cursor="nft-magnifiers-cursor nft-light-mode-magnifiers-cursor"
+                  data-cursor-text="Click me!">Privacy Policy</a>
+                  <li class="nav-list">
+                    <a href="blog.html" target="_blank" class="nav-links fw-normal active"
+                      data-cursor="nft-magnifiers-cursor nft-light-mode-magnifiers-cursor"
+                      data-cursor-text="Click me!">Blog</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header-right-wrapper">
+          <!-- <div class="toggle-wrapper">
+            <div class="toggle"></div>
+          </div> -->
+          
+          <!-- <a href="profile.html" class="header-avatar-wrapper overflow-hidden rounded-circle bg-transparent d-flex">
+            <img src="assets/images/nft/jack-pol.png" class="flex-shrink-0 header-avatarobject-fit-cover" alt="Profile">
+          </a> -->
+
+
+          <div class="d-block ms-5 d-xl-none">
+            <div class="hamburger" id="hamburger">
+              <span class="line"></span>
+              <span class="line text-center"></span>
+              <span class="line"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+<!-- container for blog posts -->
+<div id="blog-posts"></div>
+
+<script>
+    fetch('https://public-api.wordpress.com/wp/v2/sites/rlfxedu8.wordpress.com/posts?_embed')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Debugging: Check if data is received
+            let blogContainer = document.getElementById('blog-posts');
+            if (!blogContainer) {
+                console.error("Error: Element with ID 'blog-posts' not found!");
+                return;
+            }
+            data.forEach(post => {
+                let postElement = document.createElement('div');
+                
+                // Get the featured image URL if available, else use a fallback image
+                let imageUrl = post._embedded && post._embedded['wp:featuredmedia'] 
+                    ? post._embedded['wp:featuredmedia'][0].source_url 
+                    : 'fallback-image.jpg';  // Path to your fallback image
+                
+                // Check if the image URL is correct (you can log this in the console)
+                console.log(imageUrl);
+
+                // Format the post date
+                let postDate = new Date(post.date).toLocaleDateString();
+
+                postElement.classList.add('post-container'); // Add a class for styling
+
+                postElement.innerHTML = `
+                    <div class="post-image">
+                        <img src="${imageUrl}" alt="Post Image" class="featured-image">
+                    </div>
+                    <div class="post-content">
+                        <h2>${post.title.rendered}</h2>
+                        <p class="post-excerpt">${post.excerpt.rendered}</p>
+                        <p class="post-date">Published on: ${postDate}</p>
+                        <a href="${post.link}" target="_blank" class="read-more">Read More</a>
+                    </div>
+                `;
+                blogContainer.appendChild(postElement);
+            });
+        })
+        .catch(error => console.error('Error fetching blog posts:', error));
+</script>
+
+
+
+
+
+
+ <!-- Footer Start -->
+ <footer class="footer section-mt">
+    <div class="container">
+      <div class="d-grid footer-wrapper">
+        <div class="footer-logo-wrapper">
+          <a href="index.html" class="logo-wrapper d-block">
+            <img src="assets/images/logo/logo.png" class="img-fluid" alt="logo">
+          </a>
+          <p class="footer-about-wrapper fw-normal mb-0 lg">
+          
+        Experience the future of trading today.
+       Don't miss out!
+          </p>
+        </div>
+
+
+          <div class="mt-sm-auto mt-5">
+            <h2 class="p m text-capitalize font-secondary fw-normal">Follow us</h2>
+
+          </div>
+          <div class="mt-sm-auto mt-5">
+            <ul class="d-grid social-icons-list-wrapper">
+              <li class="social-icon-list">
+                <a href="https://www.facebook.com/theroyalleverage?mibextid=ZbWKwL" target="_blank" class="social-icons-link flex-center">
+                  <i data-icon="facebookIcon" class="social-icons flex-center"></i>
+                </a>
+              </li>
+              <li class="social-icon-list">
+                <a href="https://www.instagram.com/kingsamfx_ceo?igsh=aXRoaHNtOWJqcHRx" target="_blank" class="social-icons-link flex-center">
+                  <i data-icon="instagramIcon" class="social-icons flex-center"></i>
+                </a>
+              </li>
+             
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <label class="m-0 text-center d-block">Copyright <b>&copy;</b> 2024 Goldbot. All Rights Reserved.</label>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+  
+ 
+  <!-- JavaScripts -->
+  <!-- Jquery Version 3.3.1 File -->
+  <script src="assets/js/jquery.js"></script>
+  <!-- Bootstrap Bundle JavaScript Version 5.3.2 File -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Swiper JS JavaScript Version 10.3.1 File -->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <!-- Atropos JavaScript Version 2.0.2 File -->
+  <script src="assets/js/atropos.min.js"></script>
+  <!-- GSAP JavaScript Version 3.12.2 File -->
+  <script src="assets/js/gsap.min.js"></script>
+  <!-- Mouse Follower Version 1.1.2 JavaScript File -->
+  <script src="assets/js/mouse-follower.min.js"></script>
+  <!-- Jquery Ui Version 1.12.1 File -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+  <!-- Nice Select Jquery Version 1.0 File -->
+  <script src="assets/js/jquery.nice-select.min.js"></script>
+  <!-- Customized JavaScript File -->
+  <script src="assets/js/svg.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  </body>
+  </html>
