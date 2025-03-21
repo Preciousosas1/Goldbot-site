@@ -141,7 +141,7 @@
                 // Get the featured image URL if available, else use a fallback image
                 let imageUrl = post._embedded && post._embedded['wp:featuredmedia'] 
                     ? post._embedded['wp:featuredmedia'][0].source_url 
-                    : 'fallback-image.jpg';  // Path to your fallback image
+                    : 'fx 1.jpg';  // Path to your fallback image
                 
                 // Check if the image URL is correct (you can log this in the console)
                 console.log(imageUrl);
@@ -157,7 +157,6 @@
                     </div>
                     <div class="post-content">
                         <h2>${post.title.rendered}</h2>
-                        <p class="post-excerpt">${post.excerpt.rendered}</p>
                         <p class="post-date">Published on: ${postDate}</p>
                         <a href="${post.link}" target="_blank" class="read-more">Read More</a>
                     </div>
