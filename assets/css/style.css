@@ -51,7 +51,7 @@ body {
   font-family: var(--font-primary);
   color: var(--nft-body-color);
   font-size: var(--p-sm-size);
-  background-color: var(--nft-body);
+  background-color: rgba(0, 0, 0, 0.904);
   transition: background .3s ease-in-out;
   -webkit-transition: background .3s ease-in-out;
   -moz-transition: background .3s ease-in-out;
